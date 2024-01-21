@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Dashboard"
+        xmlns:vm="clr-namespace:Dashboard.ViewModel"
         mc:Ignorable="d"
         Title="MainWindow"
         Height="580"
@@ -14,8 +14,14 @@
         ResizeMode="NoResize"
         Background="Transparent"
         AllowsTransparency="True">
+
+    <Window.DataContext>
+        <vm:NavigationViewModel/>
+    </Window.DataContext>
+
     <Grid>
         <Border Background="#ECF0F1"
                 CornerRadius="10"/>
+        
     </Grid>
 </Window>

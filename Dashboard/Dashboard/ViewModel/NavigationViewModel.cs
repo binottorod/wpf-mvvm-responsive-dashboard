@@ -6,16 +6,18 @@ using Dashboard.Model;
 
 namespace Dashboard.ViewModel
 {
-    public class NavigationViewModel: INotifyPropertyChanged
+    class NavigationViewModel: INotifyPropertyChanged
     {
-        // CollectionViewSource enables XAML code to set the commonly used CollectioView properties,
+        #region Fields
+
+        // CollectionViewSource enables XAML code to set the commonly used CollectionView properties,
         // passing these settings to the underlying view
         private CollectionViewSource MenuItemsCollection;
 
+        private string filterText;
+        #endregion
 
-        // ICollectionView enables collections to have the functionalities of the current record management,
-        // custom sorting, filtering and grouping
-        public ICollectionView SourceCollection => MenuItemsCollection.View;
+        #region Constructor
 
         public NavigationViewModel()
         {
@@ -34,12 +36,57 @@ namespace Dashboard.ViewModel
             };
 
             MenuItemsCollection = new CollectionViewSource { Source = menuItems };
+            MenuItemsCollection.Filter += MenuItems_Filter;
         }
+        #endregion
+
+        #region Properties
+
+        // ICollectionView enables collections to have the functionalities of the current record management,
+        // custom sorting, filtering and grouping
+        public ICollectionView SourceCollection => MenuItemsCollection.View;
+
+        public string FilterText
+        {
+            get => filterText;
+            set
+            {
+                filterText = value;
+                MenuItemsCollection.View.Refresh();
+                OnPropertyChanged(nameof(FilterText));
+            }
+        }
+        #endregion
+
+        #region Methods
+
+        private void MenuItems_Filter(object sender, FilterEventArgs e)
+        {
+            if (string.IsNullOrEmpty(FilterText))
+            {
+                e.Accepted = true;
+                return;
+            }
+
+            MenuItems _item = e.Item as MenuItems;
+            if (_item != null && _item.MenuName.ToUpper().Contains(FilterText.ToUpper()))
+            {
+                e.Accepted = true;
+            }
+            else
+            {
+                e.Accepted = false;
+            }
+        }
+        #endregion
+
+        #region INotifyPropertyChanged elements
 
         public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged(string propName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
         }
+        #endregion
     }
 }
