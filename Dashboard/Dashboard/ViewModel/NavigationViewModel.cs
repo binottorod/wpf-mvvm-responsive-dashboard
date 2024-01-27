@@ -68,6 +68,40 @@ namespace Dashboard.ViewModel
 
         #region Methods
 
+        public void SwitchViews(object parameter)
+        {
+            switch (parameter)
+            {
+                case "Home":
+                    SelectedViewModel = new HomeViewModel();
+                    break;
+                case "Desktop":
+                    SelectedViewModel = new DesktopViewModel();
+                    break;
+                case "Documents":
+                    SelectedViewModel = new DocumentViewModel();
+                    break;
+                case "Downloads":
+                    SelectedViewModel = new DownloadViewModel();
+                    break;
+                case "Pictures":
+                    SelectedViewModel = new PictureViewModel();
+                    break;
+                case "Music":
+                    SelectedViewModel = new MusicViewModel();
+                    break;
+                case "Movies":
+                    SelectedViewModel = new MovieViewModel();
+                    break;
+                case "Trash":
+                    SelectedViewModel = new TrashViewModel();
+                    break;
+                default:
+                    SelectedViewModel = new HomeViewModel();
+                    break;
+            }
+        }
+
         private void MenuItems_Filter(object sender, FilterEventArgs e)
         {
             if (string.IsNullOrEmpty(FilterText))
