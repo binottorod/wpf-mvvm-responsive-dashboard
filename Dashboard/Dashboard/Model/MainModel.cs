@@ -26,7 +26,7 @@
 
     public class DocumentItems
     {
-        public string DocuementName { get; set; }
+        public string DocumentName { get; set; }
         public string DocumentImage { get; set; }
     }
 

@@ -25,14 +25,14 @@ namespace Dashboard.ViewModel
             // when items get added, removed, or when the whole list is refreshed
             ObservableCollection<MenuItems> menuItems = new ObservableCollection<MenuItems>
             {
-                new MenuItems { MenuName = "Home", MenuImage = "@Assets/Home_Icon.png"},
-                new MenuItems { MenuName = "Desktop", MenuImage = "@Assets/Desktop_Icon.png"},
-                new MenuItems { MenuName = "Documents", MenuImage = "@Assets/Document_Icon.png"},
-                new MenuItems { MenuName = "Downloads", MenuImage = "@Assets/Download_Icon.png"},
-                new MenuItems { MenuName = "Pictures", MenuImage = "@Assets/Images_Icon.png"},
-                new MenuItems { MenuName = "Music", MenuImage = "@Assets/Music_Icon.png"},
-                new MenuItems { MenuName = "Movies", MenuImage = "@Assets/Movies_Icon.png"},
-                new MenuItems { MenuName = "Trash", MenuImage = "@Assets/Trash_Icon.png"}
+                new MenuItems { MenuName = "Home", MenuImage = @"Assets/Home_Icon.png" },
+                new MenuItems { MenuName = "Desktop", MenuImage = @"Assets/Desktop_Icon.png" },
+                new MenuItems { MenuName = "Documents", MenuImage = @"Assets/Document_Icon.png" },
+                new MenuItems { MenuName = "Downloads", MenuImage = @"Assets/Download_Icon.png" },
+                new MenuItems { MenuName = "Pictures", MenuImage = @"Assets/Images_Icon.png" },
+                new MenuItems { MenuName = "Music", MenuImage = @"Assets/Music_Icon.png" },
+                new MenuItems { MenuName = "Movies", MenuImage = @"Assets/Movies_Icon.png" },
+                new MenuItems { MenuName = "Trash", MenuImage = @"Assets/Trash_Icon.png" }
             };
 
             MenuItemsCollection = new CollectionViewSource { Source = menuItems };
