@@ -1,7 +1,7 @@
 ﻿
 namespace Dashboard.ViewModel
 {
-    class StartupViewModel
+    public class StartupViewModel
     {
     }
 }

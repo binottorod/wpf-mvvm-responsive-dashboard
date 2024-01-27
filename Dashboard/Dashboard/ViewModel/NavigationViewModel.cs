@@ -15,6 +15,8 @@ namespace Dashboard.ViewModel
         private CollectionViewSource MenuItemsCollection;
 
         private string filterText;
+
+        private object _selectedViewModel;
         #endregion
 
         #region Constructor
@@ -55,6 +57,12 @@ namespace Dashboard.ViewModel
                 MenuItemsCollection.View.Refresh();
                 OnPropertyChanged(nameof(FilterText));
             }
+        }
+
+        public object SelectedViewModel
+        {
+            get => _selectedViewModel;
+            set { _selectedViewModel = value; OnPropertyChanged(nameof(SelectedViewModel)); }
         }
         #endregion
 

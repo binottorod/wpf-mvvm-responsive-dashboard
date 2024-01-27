@@ -65,10 +65,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="View\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Resource Include="Assets\alarm_icon.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
